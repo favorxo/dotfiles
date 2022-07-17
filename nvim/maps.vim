@@ -1,68 +1,47 @@
-" Description: Keymaps
+" Description: keymaps
 
 nnoremap <S-C-p> "0p
-" Delete without yank
+" delete without yank
 nnoremap <leader>d "_d
 nnoremap x "_x
 
-" Increment/decrement
+" increment/decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" Delete a word backwards
+" delete a word backwards
 nnoremap dw vb"_d
 
-
-" Select all
+" select all
 nmap <C-a> gg<S-v>G
 
-" Save with root permission
-command! W w !sudo tee > /dev/null %
-
-
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
+" search for selected text, forwards or backwards.
+vnoremap <silent> * :<c-u>
+  \let old_reg=getreg('"')<bar>let old_regtype=getregtype('"')<cr>
+  \gvy/<c-r><c-r>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
+  \gv:call setreg('"', old_reg, old_regtype)<cr>
+vnoremap <silent> # :<c-u>
+  \let old_reg=getreg('"')<bar>let old_regtype=getregtype('"')<cr>
+  \gvy?<c-r><c-r>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
+  \gv:call setreg('"', old_reg, old_regtype)<cr>
 
 "-----------------------------
-" Tabs
+" tabs
 
-" Open current directory
-nmap te :tabedit 
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
+" open current directory
+nmap te :tabedit .
+nmap <s-tab> <Cmd>BufferPrevious<CR>
+nmap <tab> <Cmd>BufferNext<CR>
 
 "------------------------------
-" Windows
+" split window
+nmap ss :split<return><c-w>w
+nmap sv :vsplit<return><c-w>w
 
-
-" Split window
-nmap ss :split<Return><C-w>w
-nmap sv :vsplit<Return><C-w>w
-" Move window
-nmap <Space> <C-w>w
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
-
-map sh <C-w>h
-map sk <C-w>k
-map sj <C-w>j
-map sl <C-w>l
-" Resize window
-
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-
-nmap <C-w><down> <C-w>-
+" telescope mapping
+nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <f3> <cmd>Telescope live_grep<cr>
+nnoremap <f1> <cmd>Telescope help_tags<cr>
 
