@@ -12,7 +12,7 @@ Plug 'tpope/vim-rhubarb'
 if has("nvim")
   " File explorer
   Plug 'hoob3rt/lualine.nvim'
-  Plug 'romgrk/barbar.nvim'
+  Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
   Plug 'kyazdani42/nvim-tree.lua'
   
   " LSP stuff
@@ -20,11 +20,14 @@ if has("nvim")
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
   Plug 'folke/lsp-colors.nvim'
+  
+  " Completion stuff
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
-
+  Plug 'onsails/lspkind-nvim'
+  
   " Parsing langs, :TSInstall
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
@@ -35,7 +38,6 @@ if has("nvim")
   
   " Quality of life 
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'onsails/lspkind-nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'Pocco81/AutoSave.nvim'

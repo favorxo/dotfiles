@@ -28,20 +28,7 @@ vnoremap <silent> # :<c-u>
   \gv:call setreg('"', old_reg, old_regtype)<cr>
 
 "-----------------------------
-" tabs
 
-" open current directory
-nmap te :tabedit .
-nmap <s-tab> <Cmd>BufferPrevious<CR>
-nmap <tab> <Cmd>BufferNext<CR>
-
-"------------------------------
-" split window
 nmap ss :split<return><c-w>w
 nmap sv :vsplit<return><c-w>w
-
-" telescope mapping
-nnoremap <c-p> <cmd>Telescope find_files<cr>
-nnoremap <f3> <cmd>Telescope live_grep<cr>
-nnoremap <f1> <cmd>Telescope help_tags<cr>
 
